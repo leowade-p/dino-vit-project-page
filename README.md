@@ -23,7 +23,7 @@ The process for each slice is as follows:
 - **ROIAlign** is used to extract features specifically from the tumor's region of interest.
 - The resulting features are flattened into a compact and informative feature vector representing that specific slice.
 
-![(https://github.com/leowade-p/dino-vit-project-page/blob/main/feature-extraction.png?raw=true)](把你的feature-extraction.png图片链接粘贴到这里)
+![Feature Extraction Process](https://github.com/leowade-p/dino-vit-project-page/blob/main/feature-extraction.png?raw=true)
 
 #### 2. Patient-Level Classification via MIL-ViT
 We frame the 3D classification task as a **Multiple Instance Learning (MIL)** problem. A patient's entire 3D scan is treated as a "bag," and each extracted 2D slice feature vector is an "instance" within that bag.
@@ -34,7 +34,7 @@ The classification process is as follows:
 - The entire sequence is passed through a **Transformer Encoder**, which uses its self-attention mechanism to weigh the importance of each slice and aggregate information across the entire 3D volume.
 - The final representation of the `[CLS]` token, which now encapsulates a holistic understanding of the patient's scan, is fed into a simple MLP Head for the final binary classification into "Benign" or "Malignant".
 
-![(https://github.com/leowade-p/dino-vit-project-page/blob/main/model-architecture.png?raw=true)](把你的model-architecture.png图片链接粘贴到这里)
+![Model Architecture](https://github.com/leowade-p/dino-vit-project-page/blob/main/model-architecture.png?raw=true)
 
 ### Results
 Our pipeline achieves a high performance on the test dataset, reaching an **Area Under the Curve (AUC) of 0.96**. This strong result validates the effectiveness of our approach in making accurate, patient-level diagnoses from complex 3D medical data.
